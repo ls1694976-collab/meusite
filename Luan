@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3I/ATLAS e Objetos Interestelares</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0b0f1a;
+  color:#fff;
+}
+
+section{
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h1,h2{
+  text-align:center;
+}
+
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  background:linear-gradient(180deg,#0b0f1a,#121a2f);
+}
+
+.hero h1{
+  font-size:42px;
+}
+
+.card-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.card{
+  background:#141c2e;
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  box-shadow:0 0 30px rgba(0,200,255,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.timeline{
+  border-left:3px solid #00d4ff;
+  padding-left:30px;
+}
+
+.timeline div{
+  margin-bottom:40px;
+}
+
+.simulation{
+  position:relative;
+  height:200px;
+  background:#000;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.sun{
+  position:absolute;
+  left:40px;
+  top:50%;
+  transform:translateY(-50%);
+  width:60px;
+  height:60px;
+  background:radial-gradient(circle,#ffcc00,#ff6600);
+  border-radius:50%;
+}
+
+.object{
+  position:absolute;
+  top:50%;
+  width:15px;
+  height:15px;
+  background:#00d4ff;
+  border-radius:50%;
+  animation:pass 6s linear infinite;
+}
+
+@keyframes pass{
+  0%{left:-50px;}
+  100%{left:110%;}
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#060912;
+  font-size:14px;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <h1>🌌 3I/ATLAS e Objetos Interestelares</h1>
+  <p>Explorando visitantes vindos de outros sistemas estelares</p>
+</div>
+
+<section>
+  <h2>📌 Existe 3I/ATLAS?</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+  Até o momento, apenas dois objetos interestelares foram confirmados oficialmente.
+  Um terceiro objeto (3I) ainda não foi confirmado. Caso seja detectado pelo sistema ATLAS,
+  poderá receber a designação 3I/ATLAS.
+  </p>
+</section>
+
+<section>
+  <h2>🌠 Objetos Interestelares Confirmados</h2>
+
+  <div class="card-container">
+
+    <div class="card">
+      <h3>1️⃣ 1I/ʻOumuamua (2017)</h3>
+      <p>Primeiro objeto interestelar detectado.</p>
+      <p>Formato extremamente alongado.</p>
+      <p>Aceleração incomum.</p>
+      <p>Nome significa “mensageiro que chega primeiro”.</p>
+    </div>
+
+    <div class="card">
+      <h3>2️⃣ 2I/Borisov (2019)</h3>
+      <p>Segundo objeto interestelar confirmado.</p>
+      <p>Claramente um cometa com cauda visível.</p>
+      <p>Composição semelhante a cometas do Sistema Solar.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>🔭 O que é o ATLAS?</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+  ATLAS significa Asteroid Terrestrial-impact Last Alert System.
+  É um sistema de telescópios no Havaí que monitora asteroides,
+  detecta cometas e procura objetos potencialmente perigosos.
+  </p>
+</section>
+
+<section>
+  <h2>🕒 Linha do Tempo</h2>
+
+  <div class="timeline">
+    <div>
+      <h3>2017 — 1I/ʻOumuamua</h3>
+      <p>Primeiro visitante interestelar detectado.</p>
+    </div>
+
+    <div>
+      <h3>2019 — 2I/Borisov</h3>
+      <p>Segundo objeto confirmado, claramente um cometa.</p>
+    </div>
+
+    <div>
+      <h3>Futuro — 3I</h3>
+      <p>Possível terceiro objeto ainda não confirmado.</p>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>🌌 Simulação Visual</h2>
+
+  <div class="simulation">
+    <div class="sun"></div>
+    <div class="object"></div>
+  </div>
+
+  <p style="text-align:center; margin-top:20px; color:#aaa;">
+  Representação ilustrativa de um objeto interestelar passando pelo Sistema Solar.
+  </p>
+</section>
+
+<section>
+  <h2>🧠 O que Ainda é Desconhecido</h2>
+  <div class="card-container">
+    <div class="card">
+      <p>Quantos existem vagando pela galáxia.</p>
+    </div>
+    <div class="card">
+      <p>Se carregam moléculas orgânicas complexas.</p>
+    </div>
+    <div class="card">
+      <p>A diversidade real da composição desses corpos.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 — Página informativa sobre objetos interestelares | Atualizado conforme dados científicos confirmados
+</footer>
+
+</body>
+</html>
