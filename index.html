@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Um pedacinho de felicidade ✨</title>
+<meta name="theme-color" content="#0f0a24">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>✨</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#0f0a24;--bg2:#1a1040;--violet:#a98bff;--lilac:#d4c3ff;--orchid:#e6a9ff;--pink:#ffb8e6;
+  --text:#f6f0ff;--muted:#c3b6e0;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));
+  color:var(--text);font-family:var(--sans);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Fundo */
+.blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none;z-index:0}
+.b1{width:48vmax;height:48vmax;background:#7b3fe4;top:-14vmax;left:-12vmax;animation:drift1 38s ease-in-out infinite alternate}
+.b2{width:40vmax;height:40vmax;background:#c2349b;bottom:-12vmax;right:-10vmax;animation:drift2 44s ease-in-out infinite alternate}
+.b3{width:36vmax;height:36vmax;background:#4a4ff0;top:30%;left:40%;opacity:.3;animation:drift3 50s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(18vmax,12vmax) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-16vmax,-10vmax) scale(1.1)}}
+@keyframes drift3{to{transform:translate(-20vmax,8vmax) scale(.9)}}
+.star{position:fixed;background:#fff;border-radius:50%;pointer-events:none;z-index:0;opacity:.2;animation:twinkle 4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.12;transform:scale(.8)}50%{opacity:.95;transform:scale(1.2)}}
+
+/* Progresso */
+#progress{
+  position:fixed;top:0;left:0;right:0;z-index:3;display:flex;gap:6px;
+  padding:max(14px,env(safe-area-inset-top)) 18px 0;opacity:0;transition:opacity .4s;pointer-events:none;
+}
+#progress.show{opacity:1}
+#progress span{flex:1;height:4px;border-radius:4px;background:rgba(212,195,255,.18);transition:background .4s,flex .4s}
+#progress span.done{background:var(--violet)}
+#progress span.current{background:var(--pink);flex:2.2}
+
+/* Palco */
+main{position:relative;z-index:2;width:100%;max-width:760px;padding:56px 24px;display:flex;justify-content:center}
+.screen{
+  width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;
+  animation:enter .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.screen.leaving{opacity:0;transition:opacity .35s ease;animation:none}
+@keyframes enter{from{opacity:0;transform:translateY(22px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+.spark{font-size:3.4rem;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px) rotate(6deg)}}
+
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.08}
+h1{
+  font-size:clamp(2.6rem,9vw,4.8rem);
+  background:linear-gradient(120deg,#fff 10%,var(--lilac) 50%,var(--orchid) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+.lead{font-size:clamp(1.02rem,3.6vw,1.2rem);color:var(--muted);max-width:30em;line-height:1.7}
+.counter{font-size:.9rem;font-weight:600;letter-spacing:.06em;color:var(--muted)}
+.phrase{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(1.3rem,4.8vw,2.1rem);line-height:1.45;max-width:24em;white-space:pre-line;
+  text-shadow:0 4px 30px rgba(169,139,255,.55);text-wrap:balance;
+}
+.final-msg{
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,4.6vw,1.8rem);line-height:1.55;
+  max-width:22em;color:var(--lilac);text-shadow:0 4px 26px rgba(169,139,255,.5);
+  animation:softin 1.6s ease 1.3s both;
+}
+@keyframes softin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+button{font-family:var(--sans);cursor:pointer;border:0}
+.btn{
+  background:linear-gradient(120deg,var(--pink),var(--violet));color:#1a0f3a;
+  font-weight:800;font-size:1.05rem;padding:15px 36px;border-radius:999px;
+  box-shadow:0 10px 30px rgba(169,139,255,.35);transition:transform .25s,box-shadow .25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(230,169,255,.45)}
+.btn-quiet{
+  background:transparent;color:var(--muted);font-weight:600;font-size:.95rem;padding:10px 20px;
+  border-radius:999px;border:1px solid rgba(195,182,224,.3);transition:color .25s,border-color .25s;
+}
+.btn-quiet:hover{color:var(--text);border-color:var(--lilac)}
+button:focus-visible{outline:3px solid var(--lilac);outline-offset:4px}
+
+/* Emojis subindo */
+#floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.rise{position:absolute;bottom:-40px;animation:rise linear forwards;opacity:0}
+@keyframes rise{
+  10%{opacity:.9}
+  90%{opacity:.7}
+  to{transform:translateY(-112vh) translateX(var(--dx));opacity:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .star{opacity:.5}
+}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div id="stars" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+<div id="floaters" aria-hidden="true"></div>
+<main id="stage" aria-live="polite"></main>
+
+<script>
+// ============================================================
+// MENSAGENS
+// Adicione as frases aqui, uma por linha, entre aspas e separadas por vírgula.
+// Exemplo: "Você deixa tudo mais leve.",
+// O contador e a barra de progresso se ajustam sozinhos.
+// ============================================================
+const messages = [
+  "Se eu pudesse pedir algo ao céu,\nPediria você em todos os meus dias,\nPois teu sorriso é meu pedacinho de paz,\nE teu abraço é onde minha alma se aconchegaria.",
+  "Você chegou e mudou tanta coisa,\nFez meu mundo mais bonito sem perceber,\nE hoje, entre tantas coisas que eu amo,\nA minha favorita é amar você. ❤️",
+  "Não prometo que tudo será perfeito,\nMas prometo sempre tentar melhorar,\nCuidar do teu coração com carinho\nE nunca deixar de te demonstrar.",
+  "Porque amar você vai além de palavras,\nÉ escolher você mesmo nos dias difíceis,\nÉ fazer de momentos simples lembranças\nE transformar nossos sonhos em coisas possíveis.",
+  "E se um dia você duvidar do meu amor,\nOlha nos meus olhos e tenta entender:\nEntre tantas pessoas nesse mundo,\nMeu coração teve a sorte de escolher você. 💗",
+  "Eu te amo, minha princesa.\nE se eu pudesse viver mil vidas novamente,\nEm cada uma delas, eu desejaria\nEncontrar você e te amar novamente. 🫶🏻❤️"
+];
+
+const FINAL_TEXT = "Fiz esse site só pra tira um sorriso seu e dizero quantovc e importantepra mim , espero que você goste! 💜";
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stage = document.getElementById('stage');
+const bar = document.getElementById('progress');
+const floaters = document.getElementById('floaters');
+let busy = false, floatTimer = null;
+
+/* Estrelinhas */
+(function(){
+  const box = document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s = document.createElement('i');
+    s.className = 'star';
+    const size = 1 + Math.random()*2;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;` +
+      `animation-duration:${2.5+Math.random()*4}s;animation-delay:${-Math.random()*6}s`;
+    box.appendChild(s);
+  }
+})();
+
+/* Utilidades */
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text !== undefined) e.textContent = text;
+  return e;
+}
+function button(label, cls, onClick){
+  const b = el('button', cls, label);
+  b.type = 'button';
+  b.addEventListener('click', onClick);
+  return b;
+}
+function setBar(current){
+  bar.classList.toggle('show', current >= 0);
+  [...bar.children].forEach((seg, i) => {
+    seg.classList.toggle('done', i < current);
+    seg.classList.toggle('current', i === current);
+  });
+}
+function stopFloaters(){
+  clearInterval(floatTimer); floatTimer = null;
+  floaters.innerHTML = '';
+}
+function startFloaters(){
+  if(reduceMotion) return;
+  const icons = ['✨','💜','✦','🌟'];
+  const spawn = () => {
+    const e = el('span', 'rise', icons[Math.floor(Math.random()*icons.length)]);
+    const dur = 7 + Math.random()*6;
+    e.style.cssText = `left:${Math.random()*96}%;font-size:${16+Math.random()*20}px;` +
+      `--dx:${(Math.random()*60-30).toFixed(0)}px;animation-duration:${dur}s`;
+    e.addEventListener('animationend', () => e.remove());
+    floaters.appendChild(e);
+  };
+  spawn();
+  floatTimer = setInterval(spawn, 650);
+}
+
+/* Troca de telas */
+function show(build, barIndex){
+  if(busy) return;
+  busy = true;
+  const old = stage.firstElementChild;
+  const swap = () => {
+    stopFloaters();
+    stage.innerHTML = '';
+    const screen = build();
+    stage.appendChild(screen);
+    setBar(barIndex);
+    const focusBtn = screen.querySelector('button');
+    if(focusBtn) focusBtn.focus({preventScroll:true});
+    busy = false;
+  };
+  if(old){
+    old.classList.add('leaving');
+    setTimeout(swap, reduceMotion ? 0 : 350);
+  } else swap();
+}
+
+/* Telas */
+function intro(){
+  const s = el('section', 'screen');
+  s.append(
+    el('div', 'spark', '✨'),
+    el('h1', '', 'Oii, isrraylene meu amor'),
+    el('p', 'lead', 'Preparei algumas mensagens leves pra trazer um sorriso ao seu dia. Uma de cada vez, sem pressa. 💜'),
+    button('Começar', 'btn', () => goTo(0))
+  );
+  return s;
+}
+function messageScreen(i){
+  const last = i === messages.length - 1;
+  const s = el('section', 'screen');
+  s.dataset.next = '1';
+  s.append(
+    el('p', 'counter', `${i+1} de ${messages.length}`),
+    el('p', 'phrase', messages[i]),
+    button(last ? 'Terminar' : 'Próxima mensagem', 'btn', () => goTo(i+1))
+  );
+  return s;
+}
+function finalScreen(){
+  const s = el('section', 'screen');
+  s.append(
+    el('h2', '', 'FIM ✨'),
+    el('p', 'final-msg', FINAL_TEXT),   // só é criada aqui, quando a tela final é montada
+    button('Reler as mensagens', 'btn-quiet', restart)
+  );
+  startFloaters();
+  return s;
+}
+
+function goTo(i){
+  if(i < messages.length) show(() => messageScreen(i), i);
+  else show(finalScreen, -1);
+}
+function restart(){ show(intro, -1); }
+
+/* Início */
+messages.forEach(() => bar.appendChild(document.createElement('span')));
+// Com a lista vazia, a abertura leva direto à tela final.
+stage.appendChild(intro());
+stage.firstElementChild.querySelector('button').focus({preventScroll:true});
+
+/* Teclado: seta direita avança */
+document.addEventListener('keydown', e => {
+  if(e.key !== 'ArrowRight' || busy) return;
+  const screen = stage.firstElementChild;
+  if(!screen || screen.classList.contains('leaving')) return;
+  const btn = screen.querySelector('.btn');
+  if(btn){ e.preventDefault(); btn.click(); }
+});
+</script>
+</body>
+</html>
